@@ -5,7 +5,6 @@ export async function getCurrency() {
     const response = await axios.get(
       'https://status.neuralgeneration.com/api/currency',
     )
-    console.log('response is', response)
     return response.data
   } catch (error) {
     console.log('error in currency request request', error)
