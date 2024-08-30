@@ -1,11 +1,3 @@
-<script setup lang="ts">
-import { ref } from 'vue'
-
-defineProps<{ msg: string }>()
-
-const count = ref(0)
-</script>
-
 <template>
   <h1>{{ msg }}</h1>
 
@@ -17,6 +9,7 @@ const count = ref(0)
     </p>
   </div>
 
+  <div @click="getCurrency">test response</div>
   <p>
     Check out
     <a href="https://vuejs.org/guide/quick-start.html#local" target="_blank">
@@ -34,6 +27,35 @@ const count = ref(0)
   </p>
   <p class="read-the-docs">Click on the Vite and Vue logos to learn more</p>
 </template>
+
+<script lang="ts">
+import { useCurrencyStore } from '@/stores/currencyStore'
+import { defineComponent } from 'vue'
+
+export default defineComponent({
+  props: {
+    msg: {
+      type: String,
+      default: '',
+    },
+  },
+  setup() {
+    return {
+      currencyStore: useCurrencyStore(),
+    }
+  },
+  data() {
+    return {
+      count: 0,
+    }
+  },
+  methods: {
+    getCurrency() {
+      this.currencyStore.getCurrency()
+    },
+  },
+})
+</script>
 
 <style scoped>
 .read-the-docs {
