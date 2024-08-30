@@ -149,7 +149,6 @@ export default {
     } catch (error) {
       this.loading = false
       this.error = 'Что-то пошло не так'
-      console.log('error is', error)
     }
   },
 }

@@ -62,7 +62,6 @@ export default defineComponent({
         await this.currencyStore.getCurrency()
         this.loading = false
       } catch (error) {
-        console.log('error while get rates', error)
         this.error = 'Что-то пошло не так'
         this.loading = false
       }
